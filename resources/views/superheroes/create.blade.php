@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,3 +44,5 @@
     <a href="{{route('superheroes.index')}}">Regresar</a>
 </body>
 </html>
+</div>
+@endsection

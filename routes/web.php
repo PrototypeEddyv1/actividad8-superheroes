@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SuperheroeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::controller(SuperheroeController::class)->group(function(){
     //El ->name despues de la ruta sirve para facilitar el uso de las ligas en href
@@ -26,4 +27,12 @@ Route::controller(SuperheroeController::class)->group(function(){
     Route::delete('heroeEliminado/{superheroe}','destroy')->name("superheroes.destroy");
     Route::get('editarSuperheroe/{superheroe}','edit')->name("superheroes.edit");
     Route::put('heroeEditado/{superheroe}','update')->name("superheroes.update");
+});
+
+Auth::routes();
+
+Route::get('/home', [SuperheroeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', [SuperheroeController::class, 'index'])->name('home');
 });
