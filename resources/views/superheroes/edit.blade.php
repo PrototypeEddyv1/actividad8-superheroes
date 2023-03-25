@@ -34,7 +34,9 @@
         <button type="submit">Editar superheroe</button>
     </form>
   <br>
-  <a href="{{route('superheroes.index')}}">Regresar</a>
+  <form action="{{route('superheroes.index')}}">
+      <button type="submit">Regresar</button>
+  </form>
 </body>
 </html>
 </div>

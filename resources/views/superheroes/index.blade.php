@@ -44,10 +44,10 @@
             </tr>
             @endforeach
         </table>
-        
-        <!--Si recuerda lo que aparecio en web, al usar ->name() no importa si cambie el link de route::get(), de todas maneras llevara al create
-        esto sirve para ahorrar trabajo-->
-        <a href="{{route('superheroes.create')}}">Crear superheroe</a>
+        <form action="{{ route('superheroes.create') }}" >
+            @csrf
+            <button type="submit">Agregar superheroe</button>
+        </form>
     </body>
     </html>
 </div>
