@@ -40,7 +40,6 @@
     </form>
     <br>
     <br>
-    <br>
     <form action="{{route('superheroes.index')}}">
         <button type="submit" class="btn btn-secondary">Regresar</button>
     </form>
