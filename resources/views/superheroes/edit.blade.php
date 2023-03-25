@@ -9,7 +9,7 @@
         <!--El token, es importante para mandar datos-->
         @csrf
         @method("put")
-        <h1>Editar superheroe</h1>
+        <h1 class="p-1 m-6 bg-warning">Editar superheroe</h1>
         <!--Nombre del superheroe-->
         <label>Nombre superheroe</label>
         <br>
@@ -28,14 +28,14 @@
         <!--Imagen-->
         <label>Imagen</label>
         <br>
-        <input type="file" name="imagen" id="imagen" accept="image/*" value="images/uploads/{{$superheroe->imagen}}">
+        <input class="btn btn-info" type="file" name="imagen" id="imagen" accept="image/*" value="images/uploads/{{$superheroe->imagen}}">
         <br>
         <br>
-        <button type="submit">Editar superheroe</button>
+        <button class="btn btn-success" type="submit">Editar superheroe</button>
     </form>
   <br>
   <form action="{{route('superheroes.index')}}">
-      <button type="submit">Regresar</button>
+      <button class="btn btn-secondary" type="submit">Regresar</button>
   </form>
 </body>
 </html>

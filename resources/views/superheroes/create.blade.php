@@ -14,7 +14,7 @@
     <form action="{{route("superheroes.store")}}" method="POST" enctype="multipart/form-data">
         <!--El token, es importante para mandar datos-->
         @csrf
-        <h1>Crear superheroe</h1>
+        <h1 class="p-1 m-6 bg-success text-white">Crear superheroe</h1>
         <!--Nombre del superheroe-->
         <label>Nombre superheroe</label>
         <br>
@@ -33,16 +33,16 @@
         <!--Imagen-->
         <label>Imagen</label>
         <br>
-        <input type="file" name="imagen" id="imagen" accept="image/*">
+        <input type="file" class="btn btn-info" name="imagen" id="imagen" accept="image/*">
         <br>
         <br>
-        <button type="submit">Agregar superheroe</button>
+        <button type="submit" class="btn btn-success">Agregar superheroe</button>
     </form>
     <br>
     <br>
     <br>
     <form action="{{route('superheroes.index')}}">
-        <button type="submit">Regresar</button>
+        <button type="submit" class="btn btn-secondary">Regresar</button>
     </form>
 </body>
 </html>

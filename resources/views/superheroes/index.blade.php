@@ -13,32 +13,31 @@
 <div class="container">
     <body>
         <?php $padding = "10px"?>
-        <table>
-            <tr>
-                <td style="padding:<?php echo $padding?>"><strong>Imagen</strong></td>
-                <td style="padding:<?php echo $padding?>"><strong>Nombre de superheroe</strong></td>
-                <td style="padding:<?php echo $padding?>"><strong>Nombre real</strong></td>
-                <td style="padding:<?php echo $padding?>"><strong>Datos</strong></td>
-                <td style="padding:<?php echo $padding?>"><strong>Cambios</strong></td>
-            </tr>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td style="padding:<?php echo $padding?>"><strong>Imagen</strong></td>
+                    <td style="padding:<?php echo $padding?>"><strong>Nombre de superheroe</strong></td>
+                    <td style="padding:<?php echo $padding?>"><strong>Nombre real</strong></td>
+                    <td style="padding:<?php echo $padding?>"><strong>Datos</strong></td>
+                    <td style="padding:<?php echo $padding?>"><strong>Cambios</strong></td>
+                </tr>
             @foreach ($Superheroes as $superheroe)
             <tr>
-                <td style="padding:<?php echo $padding?>"><img width="100" height="100" src='images/uploads/{{$superheroe->imagen}}'></td>
+                <td style="padding:<?php echo $padding?>"><img class="img-thumbnail img-fluid" width="100" height="100" src='images/uploads/{{$superheroe->imagen}}'></td>
                 <td style="padding:<?php echo $padding?>">{{$superheroe->nombreHeroe}}</td>
                 <td style="padding:<?php echo $padding?>">{{$superheroe->nombreReal}}</td>
                 <td style="padding:<?php echo $padding?>">{{$superheroe->infoExtra}}</td>
                 <td style="padding:<?php echo $padding?>">
-                    <form action="{{ route('superheroes.edit', $superheroe) }}">
+                    <form action="{{ route('superheroes.edit', $superheroe) }}" class="d-inline-flex">
                         @csrf
                         <br>
-                        <button type="submit">Editar</button>
-                  </form>
-                    <!--<a href="{{route('superheroes.edit',$superheroe)}}">Editar</a>-->
-                    <form action="{{ route('superheroes.destroy', $superheroe) }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="btn btn-secondary">Editar</button>
+                    </form>
+                    <form action="{{ route('superheroes.destroy', $superheroe) }}" class="d-inline-flex" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('delete')
                         <br>
-                        <button type="submit">Eliminar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
                   </form>
                 </td>
             </tr>
@@ -46,7 +45,7 @@
         </table>
         <form action="{{ route('superheroes.create') }}" >
             @csrf
-            <button type="submit">Agregar superheroe</button>
+            <button type="submit" class="btn btn-success">Agregar superheroe</button>
         </form>
     </body>
     </html>
